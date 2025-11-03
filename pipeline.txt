@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+            git(branch: 'main', url: 'https://github.com/DishaJais2412/devopspractice.git')
+// Replace with your repo URL
+      }
+    }
+   stage('Build') {
+  steps {
+    bat 'javac HelloWorld.java'
+  }
+}
+stage('Run') {
+  steps {
+    bat 'java HelloWorld'
+  }
+}
+
+  }
+}
